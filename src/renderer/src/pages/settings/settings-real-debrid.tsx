@@ -74,8 +74,12 @@ export function SettingsRealDebrid() {
       updateUserPreferences({
         realDebridApiToken: form.useRealDebrid ? form.realDebridApiToken : null,
       });
-    } catch (err) {
-      showErrorToast(t("debrid_invalid_token"));
+    } catch (err: any) {
+      if (err?.message === "NETWORK_ERROR") {
+        showErrorToast(t("debrid_network_error"));
+      } else {
+        showErrorToast(t("debrid_invalid_token"));
+      }
     } finally {
       setIsLoading(false);
     }
