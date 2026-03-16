@@ -15,7 +15,7 @@ export class RealDebridClient {
     this.instance = axios.create({
       baseURL: this.baseURL,
       headers: {
-        Authorization: `Bearer ${apiToken}`,
+        Authorization: `Bearer ${apiToken.trim()}`,
       },
     });
   }

@@ -145,11 +145,11 @@ export class AllDebridClient {
   }
 
   static authorize(apiToken: string) {
-    this.apiToken = apiToken;
+    this.apiToken = apiToken.trim();
     this.instance = axios.create({
       baseURL: this.baseURL,
       headers: {
-        Authorization: `Bearer ${apiToken}`,
+        Authorization: `Bearer ${apiToken.trim()}`,
       },
     });
 

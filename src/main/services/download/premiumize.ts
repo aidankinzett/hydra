@@ -87,7 +87,7 @@ export class PremiumizeClient {
   private static readonly baseURL = "https://www.premiumize.me/api";
 
   static authorize(apiToken: string) {
-    this.apiToken = apiToken;
+    this.apiToken = apiToken.trim();
     this.instance = axios.create({
       baseURL: this.baseURL,
     });
