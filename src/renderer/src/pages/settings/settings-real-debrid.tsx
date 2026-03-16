@@ -126,7 +126,10 @@ export function SettingsRealDebrid() {
           value={form.realDebridApiToken ?? ""}
           type="password"
           onChange={(event) =>
-            setForm({ ...form, realDebridApiToken: event.target.value })
+            setForm({
+              ...form,
+              realDebridApiToken: event.target.value.replace(/\r/g, ""),
+            })
           }
           rightContent={
             <Button type="submit" disabled={isButtonDisabled}>
